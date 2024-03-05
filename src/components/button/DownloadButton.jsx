@@ -19,15 +19,19 @@ function DownloadButton() {
           `Download Audacity button ${platform.os.family}`,
         ]);
       }
-    } 
+    }
+
+    setTimeout(() => {
+      window.location.href = "post-download";
+    }, 2000);
   }
 
   function renderButton(href) {
     return (
       <a
-        onClick={() => handleButtonClick(href)}
         className="flex flex-col justify-center bg-blue-700 hover:bg-blue-600 rounded-md items-center text-center py-3 w-full sm:w-72"
         href={href}
+        onClick={() => handleButtonClick(href)}
       >
         <div className="flex gap-2 items-center">
           <span className="icon icon-import text-white"></span>
