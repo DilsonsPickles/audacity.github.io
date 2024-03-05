@@ -13,7 +13,7 @@ function BetaBanner(url) {
     }
   }
 
-  if (url.url.endsWith("/beta/") || url.url.endsWith("/beta")) {
+  if (url.url.endsWith("/beta/") || url.url.endsWith("/beta") || url.url.endsWith("post-download")){
     return null;
   } else
     return (
