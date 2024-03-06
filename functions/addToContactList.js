@@ -21,6 +21,7 @@ const handler = async (event, context) => {
       url: "https://api.sendgrid.com/v3/marketing/contacts",
       method: "PUT",
       body: data,
+      timeout: 10000,
     };
 
     client
