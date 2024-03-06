@@ -1,3 +1,20 @@
 {
-	"siteId": "bf5b6a5b-a326-4681-a394-923ad746146d"
+	"siteId": "bf5b6a5b-a326-4681-a394-923ad746146d",
+	"geolocation": {
+		"data": {
+			"city": "Melbourne",
+			"country": {
+				"code": "AU",
+				"name": "Australia"
+			},
+			"subdivision": {
+				"code": "VIC",
+				"name": "Victoria"
+			},
+			"timezone": "Australia/Melbourne",
+			"latitude": -37.8159,
+			"longitude": 144.9669
+		},
+		"timestamp": 1709698366245
+	}
 }
