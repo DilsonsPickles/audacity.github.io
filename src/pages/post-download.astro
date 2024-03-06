@@ -1,12 +1,22 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import "../styles/icons.css";
+import MailingList from "../components/form/MailingList";
+import OperatingSystemCard from "../components/card/OperatingSystemCard";
+import ChecksumAccordion from "../components/accordion/ChecksumAccordion";
 ---
 
 <BaseLayout title="Audacity ® | post-download">
-  <section class="max-w-screen-xl mx-4 sm:mx-auto">
-    <div class="text-center py-12 flex flex-col items-center">
-      <h1>Thank you for downloading Audacity!</h1>
+  <main id="main" class="max-w-screen-xl mx-auto">
+    <div class="grid grid-cols-12 py-12 gap-y-12">
+      <div class="col-start-2 col-span-10 sm:text-center">
+        <h1>Thank you for downloading Audacity!</h1>
+      </div>
+
+      <div class="mt-12 mb-4 col-start-4 col-span-6 text-center">
+        <h3>Never miss a beat, sign-up to our mailing list</h3>
+       <MailingList client:load/>
+      </div>
     </div>
-  </section>
+  </main>
 </BaseLayout>
