@@ -40,7 +40,7 @@ const ContactForm = () => {
         <div>You're all signed up!</div>
       ) : (
         <form onSubmit={handleSubmit}>
-          <div class="flex gap-3">
+          <div class="flex gap-2">
             <input
               class="flex h-12 border border-gray-400 rounded-md w-full px-3"
               placeholder="Email address"
