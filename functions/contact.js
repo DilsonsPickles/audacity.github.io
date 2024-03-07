@@ -5,6 +5,8 @@ exports.handler = async (event) => {
   try {
     const { email, mailing_list_id } = JSON.parse(event.body);
 
+    console.log("contact function ran");
+
     // Use the SendGrid API to add the email to the mailing list
     const sendGridResponse = await axios.post(
       'https://api.sendgrid.com/v3/marketing/contacts',
