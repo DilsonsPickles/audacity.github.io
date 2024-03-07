@@ -1,8 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import "../styles/icons.css";
-import ContactForm from '../components/form/ContactForm'
-import NetlifyForm from '../components/form/NetlifyForm.astro'
+import ContactForm from "../components/form/ContactForm";
 ---
 
 <BaseLayout title="Audacity ® | post-download">
@@ -14,9 +13,7 @@ import NetlifyForm from '../components/form/NetlifyForm.astro'
 
       <div class="mt-12 mb-4 col-start-4 col-span-6 text-center">
         <h3>Never miss a beat, sign-up to our mailing list</h3>
-       <ContactForm client:load/>
-       <hr/>
-       <NetlifyForm />
+        <ContactForm client:load />
       </div>
     </div>
   </main>
