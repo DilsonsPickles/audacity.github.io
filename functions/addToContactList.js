@@ -5,6 +5,7 @@ client.setApiKey(process.env.SENDGRID_API_KEY);
 const handler = async (event, context) => {
   try {
     const requestBody = JSON.parse(event.body);
+    console.log(requestBody);
 
     const { email } = requestBody;
 
@@ -24,24 +25,29 @@ const handler = async (event, context) => {
       timeout: 10000,
     };
 
-    client
-      .request(request)
-      .then(([response, body]) => {
-        console.log(response.statusCode);
-        console.log(response.body);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    // Use async/await with try-catch for better error handling
+    const [response, body] = await client.request(request);
+
+    console.log(response.statusCode);
+    console.log(response.body);
 
     return {
       statusCode: 200,
+      headers: {
+        'Access-Control-Allow-Origin': 'https://audacity-test.netlify.app',
+        'Access-Control-Allow-Headers': 'Content-Type',
+      },
       body: "User added to contact list successfully",
     };
   } catch (error) {
     console.error("Error adding user to contact list:", error);
+
     return {
       statusCode: 500,
+      headers: {
+        'Access-Control-Allow-Origin': 'https://audacity-test.netlify.app',
+        'Access-Control-Allow-Headers': 'Content-Type',
+      },
       body: "Internal Server Error",
     };
   }
