@@ -2,6 +2,8 @@ const axios = require("axios");
 const client = require("@sendgrid/client");
 client.setApiKey(process.env.SENDGRID_API_KEY);
 
+const listId = process.env.SENDGRID_LIST_ID;
+
 const handler = async (event, context) => {
   try {
     const requestBody = JSON.parse(event.body);
@@ -10,7 +12,7 @@ const handler = async (event, context) => {
     const { email } = requestBody;
 
     const data = {
-      list_ids: ["fbbe4b78-46d9-4e9b-b3cf-e40a56fbab3f"],
+      list_ids: [listId],
       contacts: [
         {
           email: email,
@@ -25,7 +27,6 @@ const handler = async (event, context) => {
       timeout: 10000,
     };
 
-    // Use async/await with try-catch for better error handling
     const [response, body] = await client.request(request);
 
     console.log(response.statusCode);
@@ -34,7 +35,7 @@ const handler = async (event, context) => {
     return {
       statusCode: 200,
       headers: {
-        'Access-Control-Allow-Origin': 'https://audacity-test.netlify.app',
+        'Access-Control-Allow-Origin': 'https://your-netlify-site-url.com',
         'Access-Control-Allow-Headers': 'Content-Type',
       },
       body: "User added to contact list successfully",
@@ -45,7 +46,7 @@ const handler = async (event, context) => {
     return {
       statusCode: 500,
       headers: {
-        'Access-Control-Allow-Origin': 'https://audacity-test.netlify.app',
+        'Access-Control-Allow-Origin': 'https://your-netlify-site-url.com',
         'Access-Control-Allow-Headers': 'Content-Type',
       },
       body: "Internal Server Error",
